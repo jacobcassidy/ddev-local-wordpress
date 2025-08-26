@@ -11,7 +11,7 @@ _2025-08-20_
 
 _2025-08-01_
 
--   Refactor settings
+-   Refactored settings.
 
 ## 2.1.1
 
