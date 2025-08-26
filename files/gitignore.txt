@@ -2,17 +2,27 @@
 /wordpress
 
 # Ignore dev directories
-.dev-assets
 ddev-wp-setup-script
 logs
 node_modules
 vendor
+
+# Don't ignore specific dev files
+.dev-assets/*
+!.dev-assets/ddev-db-backups
+.dev-assets/ddev-db-backups/*
+!.dev-assets/ddev-db-backups/scripts/
 
 # Ignore dev files
 composer.lock
 package-lock.json
 wp-config-ddev.php
 wp-config.php
+
+# Ignore local-specific files
+.ddev/
+ray.php
+wp-cli.yml
 
 # Ignore all wp-content files by default, but allow themes and plugins to be added below
 wp-content/*
