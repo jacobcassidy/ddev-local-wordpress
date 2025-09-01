@@ -48,7 +48,7 @@ if ! grep -q "^hooks:" "$CONFIG_FILE"; then
   {
     echo "hooks:"
     echo "    post-start:"
-    echo $SLEEP_HOOK
+    echo "        $SLEEP_HOOK"
     for CONFIG in "${WP_CONFIGS[@]}"; do
       HOOK_VAR_NAME="${CONFIG}_HOOK"
       if [ -n "${!HOOK_VAR_NAME}" ]; then
@@ -60,6 +60,7 @@ if ! grep -q "^hooks:" "$CONFIG_FILE"; then
     fi
     if [ -n "$DB_URL_REPLACE_HOOK" ]; then
       echo "    post-import-db:"
+      echo "        $SLEEP_HOOK"
       echo "        $DB_URL_REPLACE_HOOK"
     fi
   } >> "$CONFIG_FILE"
