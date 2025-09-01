@@ -6,7 +6,7 @@ CONFIG_FILE=".ddev/config.yaml"
 printf "${BLUE}Adding DDEV configuration hooks to ${CONFIG_FILE}...${RESET}\n"
 
 EXEC_HOOK="- exec:"
-SLEEP_HOOK="$EXEC_CMD sleep 2"
+SLEEP_HOOK="$EXEC_HOOK sleep 2"
 
 # Define an array of WP config command variable names
 WP_CONFIGS=(
@@ -48,6 +48,7 @@ if ! grep -q "^hooks:" "$CONFIG_FILE"; then
   {
     echo "hooks:"
     echo "    post-start:"
+    echo $SLEEP_HOOK
     for CONFIG in "${WP_CONFIGS[@]}"; do
       HOOK_VAR_NAME="${CONFIG}_HOOK"
       if [ -n "${!HOOK_VAR_NAME}" ]; then
